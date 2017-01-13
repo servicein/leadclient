@@ -1,0 +1,21 @@
+{
+    "name": "servicein/leadclient",
+    "description": "Client PHP to send Lead at Servicein/CloudCare",
+    "license": "MIT",
+    "require": {
+	"php": ">=5.5",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "authors": [
+        {
+            "name": "Corrado Ronci",
+            "email": "corrado.ronci@servicein.it"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "LeadClient\\": "src/"
+        }
+    }
+}
