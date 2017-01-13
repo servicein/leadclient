@@ -11,8 +11,7 @@
             "name": "Corrado Ronci",
             "email": "corrado.ronci@servicein.it"
         }
-    ],
-    "minimum-stability": "stable",
+    ],    
     "autoload": {
         "psr-4": {
             "LeadClient\\": "src/"
