@@ -2,6 +2,7 @@ Lead Client
 =======================
 
 Lead Client is a PHP client that makes it easy to send Lead at Servicein/Cloudcare.
+
 This library require an additional info for work, you must define three constants:
  - API_URL
  - API_KEY
