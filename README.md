@@ -23,6 +23,8 @@ $lead->setFirstname("Tester")
         ->setCity("Roma")
         ->setProvince("RM")
         ->setSex("M");
+        # set other campaign 
+        ->setCampaign("OTHER_CAMPAIGN") 
 try{
     $leadClient = new Client($lead);
     $result = $leadClient->sendLead();
