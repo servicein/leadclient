@@ -82,7 +82,7 @@ class Validator {
         if(!$this->data->getPhone()|| 
                 (preg_match('/^((00|\+)39[\. ]??)??3\d{2}[\. ]??\d{6,7}$/',  $this->data->getPhone())===0 &&
                        preg_match('/^((00|\+)39[\. ]??)??0\d{2,3}[\. ]??\d{5,7}$/', $this->data->getPhone())===0)){
-           throw new \Exception("Inserire un numero di telefono valido, deve rispettare la seguente regola [/^3\d{9}/]");
+           throw new \Exception("Inserire un numero di telefono valido.");
         }
         
     }
