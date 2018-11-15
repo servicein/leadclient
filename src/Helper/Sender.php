@@ -60,6 +60,7 @@ class Sender {
             "order_id" => $lead->getOrder_id(),
             "city" => $lead->getCity(),
             "campaign" => $lead->getCampaign(),
+            "note" => $lead->getNote(),
             "api_token" => API_KEY   
         ];        
         try{

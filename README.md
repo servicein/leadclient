@@ -22,7 +22,8 @@ $lead->setFirstname("Tester")
         ->setPhone("33333333333")
         ->setCity("Roma")
         ->setProvince("RM")
-        ->setSex("M");
+        ->setSex("M")
+        ->setNote("Nota");
         # set other campaign 
         ->setCampaign("OTHER_CAMPAIGN") 
 try{

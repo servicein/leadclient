@@ -36,6 +36,9 @@ class Lead {
     
     /** @var string */
     private $campaign;
+
+    /** @var string */
+    private $note;
     
     function getFirstname() {
         return $this->firstname;
@@ -75,6 +78,10 @@ class Lead {
 
     function getCampaign() {
         return $this->campaign;
+    }
+
+    function getNote() {
+        return $this->note;
     }
 
     function setFirstname($firstname) {
@@ -124,6 +131,11 @@ class Lead {
 
     function setCampaign($campaign) {
         $this->campaign = $campaign;
+        return $this;
+    }
+    
+    function setNote($note) {
+        $this->note = $note;
         return $this;
     }
        
