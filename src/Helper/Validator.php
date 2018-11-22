@@ -42,17 +42,20 @@ class Validator {
      * @throws \Exception
      */
     private function _validateFirstAndLastName(){
-        
+
+
         if(!$this->data->getFirstname() || !preg_match('/^[a-zA-Z -]+$/',  $this->data->getFirstname())){
             throw new \Exception("Il nome inserito non è valido");
         }else{          
-           $this->data->setFirstname($this->_capitalizeFirst($this->data->getFirstname()));           
+            $this->data->setFirstname($this->_capitalizeFirst($this->data->getFirstname()));           
         }
         
-        if(!$this->data->getLastname() || !preg_match('/^[a-zA-Z -]+$/',  $this->data->getLastname())){
-           throw new \Exception("Il cognome inserito non è valido");
-        }else{
-          $this->data->setLastname($this->_capitalizeFirst($this->data->getLastname()));  
+        if($this->data->getLastname() !== Null){
+            if(!preg_match('/^[a-zA-Z -]+$/',  $this->data->getLastname())){
+               throw new \Exception("Il cognome inserito non è valido");
+            }else{
+              $this->data->setLastname($this->_capitalizeFirst($this->data->getLastname()));  
+            }
         }
         
     }
@@ -64,9 +67,10 @@ class Validator {
      * @throws \Exception
      */
     private function _validateEmail(){
-        
-        if (!filter_var($this->data->getMail(), FILTER_VALIDATE_EMAIL)) {
-           throw new \Exception("Inserire una mail valida");
+        if($this->data->getMail() !== Null){
+            if (!filter_var($this->data->getMail(), FILTER_VALIDATE_EMAIL)) {
+               throw new \Exception("Inserire una mail valida");
+            }
         }
                 
     }
