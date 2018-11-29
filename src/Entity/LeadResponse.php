@@ -44,11 +44,11 @@ class LeadResponse {
      * @param \GuzzleHttp\Psr7\Response $response
      */    
     public function __construct(\GuzzleHttp\Psr7\Response $response) {
-        
+
         $result = json_decode((string) $response->getBody());
         $this->code = (isset($result->code)) ? $result->code : 500;
         $this->status = (isset($result->status)) ? $result->status : "ERROR";
-        if($this->status == "SUCCESS"){
+        if($this->status == "SUCCESS" || $this->status =="WARNINGS"){
             $this->_isValidSend = TRUE;
         }
         $this->lead_token = (isset($result->lead_token)) ? $result->lead_token : NULL;        
