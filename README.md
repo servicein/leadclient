@@ -14,7 +14,7 @@ This library require an additional info for work, you must define three constant
 define("API_URL", "**asked to the commercial department**");
 define("API_KEY", "**asked to the commercial department**");
 define("DEFAULT_CAMPAIGN", "**asked to the commercial department**");
-
+//define("PROXY", "tpc://xxx.xxx.xxx.xxx:3128");
 $lead = new Lead();
 $lead->setFirstname("Tester")
         ->setLastname("Tester")

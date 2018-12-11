@@ -20,6 +20,8 @@ class Sender {
      * @var object LeadClient\Entity\LeadResponse
      */
     private $_result;
+    
+    private $_proxy;
 
     /**
      * Check if defined API_URL and API_KEY and instance GuzzleClient
@@ -34,6 +36,9 @@ class Sender {
         }
         if(!defined("API_KEY")){
             throw new \Exception("La costante API_KEY non e' definita");
+        }
+        if(defined("PROXY")){
+            $this->_proxy=PROXY;
         }
         $this->_client = new Client([            
             'base_uri' => API_URL,     
@@ -64,9 +69,12 @@ class Sender {
             "api_token" => API_KEY   
         ];        
         try{
-            $response = $this->_client->request("POST", "providers/contact/format/json",[
-                "form_params" => $params
-            ]);            
+            $request_param=["form_params" => $params];
+            if(isset($this->_proxy)){
+                $request_param['proxy']= $this->_proxy;
+            }
+            
+            $response = $this->_client->request("POST", "providers/contact/format/json",$request_param); 
             $this->_result = new LeadResponse($response) ;            
         } catch (\GuzzleHttp\Exception\ClientException $ex) {
             throw new \Exception($ex->getMessage());
